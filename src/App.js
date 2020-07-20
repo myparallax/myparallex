@@ -4,7 +4,7 @@ import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 
 // import components
-import Header from './components/Header/Header';
+import MainWrap from './components/MainWrap';
 
 function App() {
   const [store, ] = useState(configureStore().store);
@@ -16,7 +16,8 @@ function App() {
           loading={null}
           persistor={configureStore().persistor}
         >
-          <Header/>
+
+        <MainWrap />
 
         </PersistGate>
       </Provider>

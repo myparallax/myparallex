@@ -165,6 +165,7 @@ function Header() {
     <div className={classes.grow}>
       <AppBar position="static">
         <Toolbar>
+          
           <IconButton
             edge="start"
             className={classes.menuButton}
@@ -173,9 +174,7 @@ function Header() {
           >
             <MenuIcon />
           </IconButton>
-          <Typography className={classes.title} variant="h6" noWrap>
-            Material-UI
-          </Typography>
+          
           <div className={classes.search}>
             <div className={classes.searchIcon}>
               <SearchIcon />
@@ -190,8 +189,9 @@ function Header() {
             />
           </div>
           <div className={classes.grow} />
+          
           <div className={classes.sectionDesktop}>
-            <IconButton aria-label="show 4 new mails" color="inherit">
+            {/* <IconButton aria-label="show 4 new mails" color="inherit">
               <Badge badgeContent={4} color="secondary">
                 <MailIcon />
               </Badge>
@@ -210,8 +210,9 @@ function Header() {
               color="inherit"
             >
               <AccountCircle />
-            </IconButton>
-          </div>
+            </IconButton>*/}
+          </div> 
+          <img src={require('./../../Assests/logo.png')} alt="logo" className="logo"/>
           <div className={classes.sectionMobile}>
             <IconButton
               aria-label="show more"
@@ -222,6 +223,7 @@ function Header() {
             >
               <MoreIcon />
             </IconButton>
+            
           </div>
         </Toolbar>
       </AppBar>

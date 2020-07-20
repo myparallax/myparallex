@@ -1,6 +1,20 @@
-@import './header.scss';
-
-// General Styles
-body{
-    margin: 0;
-}
+    // Import files
+    @import './header.scss';
+    @import './MainWrap.scss';
+    @import './services.scss';
+    // Mixins
+    @mixin box-shadow ($data) {
+        -webkit-box-shadow: $data;
+        -moz-box-shadow: $data;
+        box-shadow: $data;
+    }
+    
+    // General Styles
+    body {
+        margin: 0;
+        overflow-x: hidden;
+    }
+    
+    .clear-both {
+        clear: both;
+    }

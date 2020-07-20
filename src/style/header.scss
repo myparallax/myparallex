@@ -1,0 +1,43 @@
+.logo {
+    width: 55px;
+}
+
+.MuiAppBar-colorPrimary {
+    color: #2C2C2C !important;
+    background-color: unset !important;
+}
+
+.makeStyles-search-4 {
+    background-color: white !important;
+}
+
+.makeStyles-search-4:hover,
+.makeStyles-search-4:focus {
+    background-color: white !important;
+}
+
+.MuiAppBar-colorPrimary {
+    color: white !important;
+}
+
+.makeStyles-searchIcon-5 {
+    svg {
+        color: #2C2C2C !important;
+    }
+}
+
+.makeStyles-inputInput-7 {
+    width: 20ch;
+}
+
+.makeStyles-inputInput-7 {
+    width: 100%;
+    padding: 8px 8px 8px 0px;
+    padding-left: 0px;
+    transition: width 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    padding-left: calc(1em + 32px);
+}
+
+.MuiInputBase-input {
+    color: #2C2C2C !important;
+}
