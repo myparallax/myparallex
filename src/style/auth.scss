@@ -1,0 +1,192 @@
+@import './fonts.scss';
+$color: #DEDEEA;
+.auth-container {
+    width: 100%;
+    height: auto;
+    background-image: url('./../Assests/auth/bg-login.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 0;
+    padding: 5rem 0;
+    margin: 0;
+    background-blend-mode: screen;
+    background-color: gray;
+}
+
+.auth-btns {
+    display: grid;
+    grid-template-columns: 100px 100px;
+    text-align: center;
+    width: auto;
+    justify-content: center;
+    transition: 0.5s;
+    button {
+        background-color: unset;
+        padding: 0.5rem 1rem;
+        border: 1px solid $color;
+        border-radius: 0 0.25rem 0.25rem 0;
+        color: $color;
+        font-family: 'iran-sans';
+    }
+    .auth-btn-1 {
+        border-radius: 0.25rem 0 0 0.25rem;
+        border-right: 0;
+    }
+    button:hover,
+    button:focus {
+        cursor: pointer;
+    }
+    .active {
+        color: black;
+    }
+    margin-bottom: 4rem;
+}
+
+//login & Sign up component
+.MuiContainer-maxWidthXs {
+    max-width: 350px!important;
+    background-color: white;
+    font-family: 'iran-sans' !important;
+    border-radius: 0.5rem !important;
+}
+
+.sign-up {
+    max-width: 400px!important;
+}
+
+.MuiGrid-container {
+    margin: 1.5rem 0 !important;
+    justify-content: flex-end;
+}
+
+.MuiContainer-root {
+    padding: 0 2.5rem !important;
+}
+
+.MuiFormControlLabel-root {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+.MuiGrid-item {
+    direction: rtl;
+}
+
+.MuiTypography-body1 {
+    font-size: 10px !important;
+    font-family: 'iran-sans' !important;
+    margin-right: -5px;
+}
+
+.MuiTypography-h5 {
+    font-family: 'iran-sans' !important;
+    margin: 2rem 0 3rem 0 !important;
+}
+
+.MuiOutlinedInput-input {
+    padding: 1rem 0.5rem !important;
+}
+
+.MuiGrid-grid-xs-true {
+    text-align: end !important;
+    padding: 9px 0 !important;
+}
+
+.MuiTypography-colorPrimary {
+    color: #B2B2B2 !important;
+}
+
+.form-button-sign-up {
+    background: rgb(9, 238, 230) !important;
+    background: linear-gradient(0deg, rgba(9, 238, 230, 1) 0%, rgba(14, 239, 178, 1) 100%) !important;
+    border: none!important;
+    border-radius: 0.75rem !important;
+    font-family: 'iran-sans' !important;
+    padding: 0.7rem 1rem !important;
+    margin-bottom: 1rem !important;
+}
+
+.form-button-login {
+    background: rgba(238, 9, 87, 1);
+    background: -moz-linear-gradient(-45deg, rgba(238, 9, 87, 1) 0%, rgba(247, 48, 85, 1) 50%, rgba(247, 48, 85, 1) 51%, rgba(251, 65, 84, 1) 71%, rgba(255, 83, 83, 1) 100%);
+    background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(238, 9, 87, 1)), color-stop(50%, rgba(247, 48, 85, 1)), color-stop(51%, rgba(247, 48, 85, 1)), color-stop(71%, rgba(251, 65, 84, 1)), color-stop(100%, rgba(255, 83, 83, 1)));
+    background: -webkit-linear-gradient(-45deg, rgba(238, 9, 87, 1) 0%, rgba(247, 48, 85, 1) 50%, rgba(247, 48, 85, 1) 51%, rgba(251, 65, 84, 1) 71%, rgba(255, 83, 83, 1) 100%);
+    background: -o-linear-gradient(-45deg, rgba(238, 9, 87, 1) 0%, rgba(247, 48, 85, 1) 50%, rgba(247, 48, 85, 1) 51%, rgba(251, 65, 84, 1) 71%, rgba(255, 83, 83, 1) 100%);
+    background: -ms-linear-gradient(-45deg, rgba(238, 9, 87, 1) 0%, rgba(247, 48, 85, 1) 50%, rgba(247, 48, 85, 1) 51%, rgba(251, 65, 84, 1) 71%, rgba(255, 83, 83, 1) 100%);
+    background: linear-gradient(135deg, rgba(238, 9, 87, 1) 0%, rgba(247, 48, 85, 1) 50%, rgba(247, 48, 85, 1) 51%, rgba(251, 65, 84, 1) 71%, rgba(255, 83, 83, 1) 100%);
+    border: none!important;
+    border-radius: 0.75rem !important;
+    font-family: 'iran-sans' !important;
+    padding: 0.7rem 1rem !important;
+    margin-bottom: 1rem !important;
+}
+
+.login-img {
+    width: 35%;
+    position: relative;
+    top: -35px;
+    left: -75px;
+}
+
+.base-line {
+    margin-top: 2rem;
+    border-bottom: 1px solid $color;
+}
+
+.login-text-social {
+    position: relative;
+    top: -10px;
+    background-color: white;
+    padding: 0 8px;
+}
+
+.social-accounts {
+    text-align: center;
+}
+
+.social-icons {
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    margin: 1rem;
+    justify-content: center;
+    grid-gap: 1.5rem;
+    margin-bottom: 5rem;
+}
+
+.icons {
+    width: 2.5rem;
+    height: 2.5rem;
+    background-color: blue;
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    svg {
+        margin: 0 auto;
+        font-size: 1.2rem;
+    }
+    border-radius:0.7rem;
+    color: white;
+}
+
+.icons:hover {
+    @include box-shadow(0px 0px 8px 0px #CCC9CC);
+    cursor: pointer;
+}
+
+.MuiCheckbox-colorPrimary.Mui-checked {
+    color: rgba(238, 9, 87, 1) !important;
+}
+
+.sign-up-checkbox .MuiCheckbox-colorPrimary.Mui-checked {
+    color: #23D2E2 !important;
+}
+
+.contact-us {
+    direction: rtl;
+    font-size: 11px;
+}
+
+.contact-us a {
+    color: #23D2E2 !important;
+}

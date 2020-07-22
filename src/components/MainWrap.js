@@ -1,6 +1,7 @@
 import React  from "react";
 import Header from './Header/Header'
 import Services from "./Services";
+import Card from './Card';
 // import { setLanguage} from "../state_manager/actions" 
 // import {useSelector , useDispatch} from "react-redux";
 // import {IntlProvider} from "react-intl";
@@ -29,7 +30,9 @@ function MainWrap(){
             <div className="clear-both"></div>
             <Services />
 
+            <img src={require('./../Assests/p1.png')} alt=" " className="side-image1"/>
             
+            <Card />
             
         </div>
     )
