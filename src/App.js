@@ -2,7 +2,11 @@ import React, { useState } from "react";
 import { configureStore } from "./store";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
-import Login from './components/Login'
+
+// import components
+import MainWrap from './components/MainWrap';
+import Auth from './components/Auth/Auth'
+
 function App() {
   const [store, ] = useState(configureStore().store);
 
@@ -13,7 +17,9 @@ function App() {
           loading={null}
           persistor={configureStore().persistor}
         >
-          <Login/>
+
+        {/* <MainWrap /> */}
+        <Auth />
 
         </PersistGate>
       </Provider>

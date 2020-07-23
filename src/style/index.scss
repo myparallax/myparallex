@@ -1,0 +1,15 @@
+    // Import files
+    @import './header.scss';
+    @import './MainWrap.scss';
+    @import './services.scss';
+    @import './auth.scss';
+    // Mixins
+    // General Styles
+    body {
+        margin: 0;
+        overflow-x: hidden;
+    }
+    
+    .clear-both {
+        clear: both;
+    }

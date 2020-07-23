@@ -4,7 +4,8 @@ import App from './App';
 import { ApolloProvider } from '@apollo/react-hooks';
 import client from './services/apollo/client' 
 import * as serviceWorker from './serviceWorker';
-import 'dotenv/config'
+import 'dotenv/config';
+import './style/index.scss';
 
 ReactDOM.render(
   <React.StrictMode>
