@@ -1,12 +1,6 @@
 import React from "react";
 import Header from './Header/Header'
 import Services from "./Services";
-import Card from './Card';
-// import { setLanguage} from "../state_manager/actions" 
-// import {useSelector , useDispatch} from "react-redux";
-// import {IntlProvider} from "react-intl";
-// import {languages} from "../translations";
-// import {HashRouter as Router } from "react-router-dom";
 
 
 function MainWrap() {
@@ -32,7 +26,7 @@ function MainWrap() {
 
             <img src={require('./../Assests/p1.png')} alt=" " className="side-image1" />
 
-            <Card />
+            {/* <Card /> */}
 
         </div>
     )
