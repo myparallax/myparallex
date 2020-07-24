@@ -5,7 +5,6 @@ import { PersistGate } from "redux-persist/integration/react";
 
 // import components
 import MainWrap from './components/MainWrap';
-import Auth from './components/Auth/Auth'
 
 function App() {
   const [store, ] = useState(configureStore().store);
@@ -18,8 +17,7 @@ function App() {
           persistor={configureStore().persistor}
         >
 
-        {/* <MainWrap /> */}
-        <Auth />
+        <MainWrap />
 
         </PersistGate>
       </Provider>
