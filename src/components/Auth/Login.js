@@ -44,7 +44,7 @@ export default function Login() {
   return (
     <Container component="main" maxWidth="xs">
       <div className={classes.img}>
-      <img src={require('./../../Assests/auth/Rocket@2x.png')} className="login-img" />
+      <img src={require('./../../Assests/auth/Rocket@2x.png')} className="login-img" alt="img"/>
       </div>
       
       <CssBaseline />
