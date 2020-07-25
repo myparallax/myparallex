@@ -1,28 +1,10 @@
 @import './mixins.scss';
 @import './fonts.scss';
 
-// .header-img:hover {
-//     transform: rotatez(40deg);
-//     opacity: 90%;
-// }
-
 .main-wrap {
     font-family: 'aviny';
 
-    .header-img {
-        position: absolute;
-        bottom: 0;
-        left: -50%;
-        width: 100%;
-        height: auto;
-        transition: all ease-in-out 2s;
-        z-index: -1;
-        opacity: 20% ;
-        .header-img:hover{
-            // transform: rotate(40deg);
-            opacity: 100%;
-        }
-    }
+   
     
     .header-content {
         width: 50%;
@@ -61,7 +43,21 @@
         }
     }
 }
+.header-img {
+    position: absolute;
+    bottom: 0;
+    left: -50%;
+    width: 100%;
+    height: auto;
+    transition: all ease-in-out 2s;
+    z-index: -1;
+    opacity: 20% ;
 
+    &:hover{
+        // transform: rotate(40deg);
+        opacity: 100%;
+    }
+}
 .side-image1 {
     position: absolute;
     right: 0;
