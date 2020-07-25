@@ -1,5 +1,7 @@
 import React from 'react' 
+import Services from './Services'
 import headerImg  from './../Assests/header-parallax1.png' 
+
 function Home(){
 
     return  <div className="main-wrap">
@@ -18,7 +20,7 @@ function Home(){
         </div>
     </div>
     <div className="clear-both"></div>
-    {/* <Services /> */}
+    <Services />
 
     <img src={require('./../Assests/p1.png')} alt=" " className="side-image1" />
 
