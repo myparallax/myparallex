@@ -1,6 +1,7 @@
 import React from "react";
 import Header from './Header/Header'
-import Services from "./Services";
+import Home from './Home'
+//import Services from "./Services";
 
 
 function MainWrap() {
@@ -8,7 +9,7 @@ function MainWrap() {
 
     return <>
     <Header/>
-    
+    <Home/>
 
     </>
 }
