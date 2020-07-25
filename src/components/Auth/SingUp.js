@@ -9,7 +9,7 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-
+import clsx from 'clsx'; 
 // import icons
 import FacebookIcon from '@material-ui/icons/Facebook';
 import TwitterIcon from '@material-ui/icons/Twitter';
@@ -44,7 +44,7 @@ export default function Login() {
   return (
     <Container component="main" maxWidth="xs"  className="sign-up">
       <div className={classes.img} >
-      <img src={require('./../../Assests/auth/Rocket@2x.png')} className="login-img" />
+      <img src={require('./../../Assests/auth/Rocket@2x.png')} className="login-img"  alt="img"/>
       </div>
       
       <CssBaseline />
@@ -128,8 +128,7 @@ export default function Login() {
             fullWidth
             variant="contained"
             color="primary"
-            className={classes.submit}
-            className="form-button-sign-up"
+            className={clsx(classes.submit , "form-button-sign-up")}
           >
          اکنون ثبت نام کنید
           </Button>
