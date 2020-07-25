@@ -1,10 +1,11 @@
 import React from 'react' 
-
+import headerImg  from './../Assests/header-parallax1.png' 
 function Home(){
 
     return  <div className="main-wrap">
-    <div>
-        <img src={require('./../Assests/header-parallax1.png')} alt="" className="header-img" />
+    <div >
+        <img src={headerImg} alt="img"  className="header-img"/>
+        
         {/* <Header /> */}
         <div className="header-content">
             <h2>پیام پارالاکس برای  کاربران خود</h2>
