@@ -5,7 +5,7 @@ function Home(){
     return  <div className="main-wrap">
     <div>
         <img src={require('./../Assests/header-parallax1.png')} alt="" className="header-img" />
-        <Header />
+        {/* <Header /> */}
         <div className="header-content">
             <h2>پیام پارالاکس برای  کاربران خود</h2>
             <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ
@@ -17,7 +17,7 @@ function Home(){
         </div>
     </div>
     <div className="clear-both"></div>
-    <Services />
+    {/* <Services /> */}
 
     <img src={require('./../Assests/p1.png')} alt=" " className="side-image1" />
 
@@ -25,3 +25,5 @@ function Home(){
 
 </div>
 }
+
+export default Home ; 
