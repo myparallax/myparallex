@@ -4,8 +4,6 @@
 .main-wrap {
     font-family: 'aviny';
 
-   
-    
     .header-content {
         width: 50%;
         padding-top: 5rem;
@@ -43,21 +41,7 @@
         }
     }
 }
-.header-img {
-    position: absolute;
-    bottom: 0;
-    left: -50%;
-    width: 100%;
-    height: auto;
-    transition: all ease-in-out 2s;
-    z-index: -1;
-    opacity: 20% ;
 
-    &:hover{
-        // transform: rotate(40deg);
-        opacity: 100%;
-    }
-}
 .side-image1 {
     position: absolute;
     right: 0;
