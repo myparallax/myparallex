@@ -13,6 +13,7 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import MailIcon from '@material-ui/icons/Mail';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
+import headerImg from '../../Assests/header-parallax1.png'
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -226,8 +227,12 @@ function Header() {
           </div>
         </Toolbar>
       </AppBar>
+      
       {renderMobileMenu}
       {renderMenu}
+
+      <img src={headerImg} alt="img" className="header-img"  onClick={()=>console.log("clicked ")}  />
+
     </div>
   );
 }
