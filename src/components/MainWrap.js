@@ -1,16 +1,20 @@
 import React from "react";
-import Header from './Header/Header'
 import Home from './Home'
-
+import { BrowserRouter  , Route ,  Link , Switch } from 'react-router-dom'   
+import Header from './Header/Header' 
 
 function MainWrap() {
 
+    return  <BrowserRouter >
+ 
+    <Route ></Route>
 
-    return <>
     <Header/>
     <Home/>
 
-    </>
+    </BrowserRouter>
+   
+
 }
 
 export default MainWrap;
