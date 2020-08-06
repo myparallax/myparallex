@@ -13,6 +13,4 @@ apollo-boost        : installed
 @apollo/react-hooks : installed 
 graphql             : installed
 dotenv              : installed
-
-
-
+bootstrap           : installed 
