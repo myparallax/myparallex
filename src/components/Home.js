@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import Services from './Services'
 
 import headerImg from './../Assests/header-parallax1.png'
