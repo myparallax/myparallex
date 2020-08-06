@@ -6,6 +6,7 @@ import client from './services/apollo/client'
 import * as serviceWorker from './serviceWorker';
 import 'dotenv/config';
 import './style/index.scss';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 ReactDOM.render(
   <React.StrictMode>
