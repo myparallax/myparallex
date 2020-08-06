@@ -10,7 +10,7 @@ function MainWrap() {
     <Route ></Route>
 
     <Header/>
-    <Home/>
+    {/* <Home/> */}
 
     </BrowserRouter>
    

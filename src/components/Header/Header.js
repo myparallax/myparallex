@@ -1,241 +1,159 @@
-import React from 'react';
-import { fade, makeStyles } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import IconButton from '@material-ui/core/IconButton';
-import InputBase from '@material-ui/core/InputBase';
-import Badge from '@material-ui/core/Badge';
-import MenuItem from '@material-ui/core/MenuItem';
-import Menu from '@material-ui/core/Menu';
-import MenuIcon from '@material-ui/icons/Menu';
-import SearchIcon from '@material-ui/icons/Search';
-import AccountCircle from '@material-ui/icons/AccountCircle';
-import MailIcon from '@material-ui/icons/Mail';
-import NotificationsIcon from '@material-ui/icons/Notifications';
-import MoreIcon from '@material-ui/icons/MoreVert';
-import headerImg from '../../Assests/header-parallax1.png'
+import React,{useState} from "react";
+import {Link} from 'react-router-dom';
+// reactstrap components
+import {
+  Button,
+  Collapse,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem,
+  UncontrolledDropdown,
+  Input,
+  InputGroup,
+  NavbarBrand,
+  Navbar,
+  NavLink,
+  Nav,
+  Container,
+  Modal
+} from "reactstrap";
 
-const useStyles = makeStyles((theme) => ({
-  grow: {
-    flexGrow: 1,
-  },
-  menuButton: {
-    marginRight: theme.spacing(2),
-  },
-  title: {
-    display: 'none',
-    [theme.breakpoints.up('sm')]: {
-      display: 'block',
-    },
-  },
-  search: {
-    position: 'relative',
-    borderRadius: theme.shape.borderRadius,
-    backgroundColor: fade(theme.palette.common.white, 0.15),
-    '&:hover': {
-      backgroundColor: fade(theme.palette.common.white, 0.25),
-    },
-    marginRight: theme.spacing(2),
-    marginLeft: 0,
-    width: '100%',
-    [theme.breakpoints.up('sm')]: {
-      marginLeft: theme.spacing(3),
-      width: 'auto',
-    },
-  },
-  searchIcon: {
-    padding: theme.spacing(0, 2),
-    height: '100%',
-    position: 'absolute',
-    pointerEvents: 'none',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  inputRoot: {
-    color: 'inherit',
-  },
-  inputInput: {
-    padding: theme.spacing(1, 1, 1, 0),
-    // vertical padding + font size from searchIcon
-    paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
-    transition: theme.transitions.create('width'),
-    width: '100%',
-    [theme.breakpoints.up('md')]: {
-      width: '20ch',
-    },
-  },
-  sectionDesktop: {
-    display: 'none',
-    [theme.breakpoints.up('md')]: {
-      display: 'flex',
-    },
-  },
-  sectionMobile: {
-    display: 'flex',
-    [theme.breakpoints.up('md')]: {
-      display: 'none',
-    },
-  },
-}));
+function Header (){
 
-function Header() {
-  const classes = useStyles();
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
+  const [collapseOpen,setCollapseOpen] = useState(false);
+  const [modalSearch,setModalSearch] = useState(false);
+  const [sidebarOpened,setsidebarOpened] = useState( document.documentElement.className.indexOf("nav-open") !== -1);
 
-  const isMenuOpen = Boolean(anchorEl);
-  const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
+  const toggleCollapse = () => setCollapseOpen(!collapseOpen);
+  const toggleModalSearch = () => setModalSearch(!modalSearch);
 
-  const handleProfileMenuOpen = (event) => {
-    setAnchorEl(event.currentTarget);
+  const toggleSidebar = () => {
+    document.documentElement.classList.toggle("nav-open");
+    setsidebarOpened(!sidebarOpened);
   };
-
-  const handleMobileMenuClose = () => {
-    setMobileMoreAnchorEl(null);
-  };
-
-  const handleMenuClose = () => {
-    setAnchorEl(null);
-    handleMobileMenuClose();
-  };
-
-  const handleMobileMenuOpen = (event) => {
-    setMobileMoreAnchorEl(event.currentTarget);
-  };
-
-  const menuId = 'primary-search-account-menu';
-  const renderMenu = (
-    <Menu
-      anchorEl={anchorEl}
-      anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
-      id={menuId}
-      keepMounted
-      transformOrigin={{ vertical: 'top', horizontal: 'right' }}
-      open={isMenuOpen}
-      onClose={handleMenuClose}
+ 
+  return(
+    <>
+    <Navbar
+      expand="lg"
+      className="home-navbar"
     >
-      <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
-    </Menu>
-  );
-
-  const mobileMenuId = 'primary-search-account-menu-mobile';
-  const renderMobileMenu = (
-    <Menu
-      anchorEl={mobileMoreAnchorEl}
-      anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
-      id={mobileMenuId}
-      keepMounted
-      transformOrigin={{ vertical: 'top', horizontal: 'right' }}
-      open={isMobileMenuOpen}
-      onClose={handleMobileMenuClose}
-    >
-      <MenuItem>
-        <IconButton aria-label="show 4 new mails" color="inherit">
-          <Badge badgeContent={4} color="secondary">
-            <MailIcon />
-          </Badge>
-        </IconButton>
-        <p>Messages</p>
-      </MenuItem>
-      <MenuItem>
-        <IconButton aria-label="show 11 new notifications" color="inherit">
-          <Badge badgeContent={11} color="secondary">
-            <NotificationsIcon />
-          </Badge>
-        </IconButton>
-        <p>Notifications</p>
-      </MenuItem>
-      <MenuItem onClick={handleProfileMenuOpen}>
-        <IconButton
-          aria-label="account of current user"
-          aria-controls="primary-search-account-menu"
-          aria-haspopup="true"
-          color="inherit"
-        >
-          <AccountCircle />
-        </IconButton>
-        <p>Profile</p>
-      </MenuItem>
-    </Menu>
-  );
-
-  return (
-    <div className={classes.grow}>
-      <AppBar position="static">
-        <Toolbar>
-          
-          <IconButton
-            edge="start"
-            className={classes.menuButton}
-            color="inherit"
-            aria-label="open drawer"
+      <Container fluid>
+        <div className="navbar-wrapper">
+          <div
+            className={`navbar-toggle d-inline ${sidebarOpened ? "toggled" : ""}`}
           >
-            <MenuIcon />
-          </IconButton>
-          
-          <div className={classes.search}>
-            <div className={classes.searchIcon}>
-              <SearchIcon />
+            {/* <button
+              className="navbar-toggler"
+              type="button"
+              onClick={toggleSidebar}
+            >
+              <span className="navbar-toggler-bar bar1" />
+              <span className="navbar-toggler-bar bar2" />
+              <span className="navbar-toggler-bar bar3" />
+            </button> */}
+          </div>
+          <NavbarBrand href="/" onClick={e => e.preventDefault()}>
+            <img src={require('./../../Assests/logo.svg')} />
+          </NavbarBrand>
+        </div>
+        <button
+          aria-expanded={false}
+          aria-label="Toggle navigation"
+          className="navbar-toggler collapse-btn"
+          data-target="#navigation"
+          data-toggle="collapse"
+          id="navigation"
+          type="button"
+          onClick={toggleCollapse}
+        >
+         <img src={require('./../../Assests/menu.svg')} />
+        </button>
+        <Collapse navbar isOpen={collapseOpen}>
+          <Nav className="ml-auto home-nav " navbar>
+            <div className="search-bar nav-item">
+              <Button
+                color="link"
+                data-target="#searchModal"
+                data-toggle="modal"
+                id="search-button"
+                onClick={toggleModalSearch}
+                
+              >
+                <img src={require('./../../Assests/search-icon.svg')} />
+                <span className="d-lg-none d-md-block nav-link" to="#" >جستجو</span>
+              </Button>
             </div>
-            <InputBase
-              placeholder="Search…"
-              classes={{
-                root: classes.inputRoot,
-                input: classes.inputInput,
-              }}
-              inputProps={{ 'aria-label': 'search' }}
-            />
-          </div>
-          <div className={classes.grow} />
-          
-          <div className={classes.sectionDesktop}>
-            {/* <IconButton aria-label="show 4 new mails" color="inherit">
-              <Badge badgeContent={4} color="secondary">
-                <MailIcon />
-              </Badge>
-            </IconButton>
-            <IconButton aria-label="show 17 new notifications" color="inherit">
-              <Badge badgeContent={17} color="secondary">
-                <NotificationsIcon />
-              </Badge>
-            </IconButton>
-            <IconButton
-              edge="end"
-              aria-label="account of current user"
-              aria-controls={menuId}
-              aria-haspopup="true"
-              onClick={handleProfileMenuOpen}
-              color="inherit"
-            >
-              <AccountCircle />
-            </IconButton>*/}
-          </div> 
-          <img src={require('./../../Assests/logo.png')} alt="logo" className="logo"/>
-          <div className={classes.sectionMobile}>
-            <IconButton
-              aria-label="show more"
-              aria-controls={mobileMenuId}
-              aria-haspopup="true"
-              onClick={handleMobileMenuOpen}
-              color="inherit"
-            >
-              <MoreIcon />
-            </IconButton>
             
-          </div>
-        </Toolbar>
-      </AppBar>
-      
-      {renderMobileMenu}
-      {renderMenu}
+            <li className="nav-item">
+            <img src={require('./../../Assests/Marketplace Icon.svg')} className="d-lg-none nav-link-icon"/>
+              <Link className="nav-link" to="#" >مارکت</Link>
+            </li>
+            <li className="nav-item">
+            <img src={require('./../../Assests/Groups Icon.svg')} className="d-lg-none nav-link-icon"/>
+              <Link className="nav-link" to="#" >آموزش</Link>
+            </li>
+            <li className="nav-item">
+            <img src={require('./../../Assests/Quests Icon.svg')} className="d-lg-none nav-link-icon"/>
+              <Link className="nav-link" to="#" >اکسپلور</Link>
+            </li>
+            <li className="nav-item">
+            <img src={require('./../../Assests/Badges Icon.svg')} className="d-lg-none nav-link-icon"/>
+              <Link className="nav-link" to="#" >درباره ما</Link>
+            </li>
+            
+            <UncontrolledDropdown nav className="home-navbar-profile">
+              <DropdownToggle
+                caret
+                color="default"
+                data-toggle="dropdown"
+                nav
+                onClick={e => e.preventDefault()}
+              >
+                <div className="photo">
+                  <img alt="..." src={require("./../../Assests/user.jpg")} />
+                </div>
+                <b className="caret d-none d-lg-block d-xl-block" />
+              </DropdownToggle>
+              <DropdownMenu className="dropdown-navbar" right tag="ul">
+                <NavLink tag="li">
+                  <DropdownItem className="nav-itempro">پروفایل کاربری</DropdownItem>
+                </NavLink>
+                <NavLink tag="li">
+                  <DropdownItem className="nav-itempro">تنظیمات</DropdownItem>
+                </NavLink>
+                <DropdownItem divider tag="li" />
+                <NavLink tag="li">
+                  <DropdownItem className="nav-itempro">خروج از حساب</DropdownItem>
+                </NavLink>
+              </DropdownMenu>
+            </UncontrolledDropdown>
+            <li className="separator d-lg-none" />
+          </Nav>
+        </Collapse>
+      </Container>
+    </Navbar>
+    <Modal
+      modalClassName="modal-search"
+      isOpen={modalSearch}
+      toggle={toggleModalSearch}
+    >
+      <div className="modal-header">
+        <Input id="inlineFormInputGroup" placeholder="جستجو ..." type="text" />
+        <button
+          aria-label="Close"
+          className="blue-btn"
+          data-dismiss="modal"
+          type="button"
+          onClick={toggleModalSearch}
+          
+        >
+          <img className="icon-simple-remove" src={require('./../../Assests/remove.svg')}/>
+        </button>
+      </div>
+    </Modal>
+  </>
 
-      <img src={headerImg} alt="img" className="header-img"  onClick={()=>console.log("clicked ")}  />
-
-    </div>
   );
 }
-
-
 export default Header;
