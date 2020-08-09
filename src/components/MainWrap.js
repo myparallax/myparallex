@@ -1,7 +1,7 @@
 import React from "react";
-//import Home from './Home'
+// import Home from './Home'
 import { BrowserRouter  , Route  } from 'react-router-dom'   
-import Header from './Header/Header' 
+import Header from './Header' 
 
 function MainWrap() {
 
