@@ -53,7 +53,7 @@ function Header() {
             </button> */}
             </div>
             <NavbarBrand href="/" onClick={e => e.preventDefault()}>
-              <img src={require('./../../Assests/logo.svg')} alt="logo" />
+              <img src={require('@/Assests/logo.svg')} alt="logo" />
             </NavbarBrand>
           </div>
           <button
@@ -66,7 +66,7 @@ function Header() {
             type="button"
             onClick={toggleCollapse}
           >
-            <img src={require('./../../Assests/menu.svg')} alt="menu" />
+            <img src={require('@/Assests/menu.svg')} alt="menu" />
           </button>
           <Collapse navbar isOpen={collapseOpen}>
             <Nav className="ml-auto home-nav " navbar>
@@ -79,27 +79,27 @@ function Header() {
                   onClick={toggleModalSearch}
 
                 >
-                  <img src={require('./../../Assests/search-icon.svg')} alt="search-icon" />
+                  <img src={require('@/Assests/search-icon.svg')} alt="search-icon" />
                   <span className="d-lg-none d-md-block nav-link" to="#" >جستجو</span>
                 </Button>
               </div>
 
               <li className="nav-item">
-                <img src={require('./../../Assests/Marketplace Icon.svg')} className="d-lg-none nav-link-icon" alt="marketplace icon" />
+                <img src={require('@/Assests/Marketplace Icon.svg')} className="d-lg-none nav-link-icon" alt="marketplace icon" />
                 <Link className="nav-link" to="#" >مارکت</Link>
               </li>
               <li className="nav-item">
-                <img src={require('./../../Assests/Groups Icon.svg')} className="d-lg-none nav-link-icon"
+                <img src={require('@/Assests/Groups Icon.svg')} className="d-lg-none nav-link-icon"
                   alt="group icon" />
                 <Link className="nav-link" to="#" >آموزش</Link>
               </li>
               <li className="nav-item" >
-                <img src={require('./../../Assests/Quests Icon.svg')} className="d-lg-none nav-link-icon"
+                <img src={require('@/Assests/Quests Icon.svg')} className="d-lg-none nav-link-icon"
                   alt="quests icon" />
                 <Link className="nav-link" to="#" >اکسپلور</Link>
               </li>
               <li className="nav-item">
-                <img src={require('./../../Assests/Badges Icon.svg')} className="d-lg-none nav-link-icon"
+                <img src={require('@/Assests/Badges Icon.svg')} className="d-lg-none nav-link-icon"
                   alt="badges icon" />
                 <Link className="nav-link" to="#" >درباره ما</Link>
               </li>
@@ -113,7 +113,7 @@ function Header() {
                   onClick={e => e.preventDefault()}
                 >
                   <div className="photo">
-                    <img alt="..." src={require("./../../Assests/user.jpg")} />
+                    <img alt="..." src={require("@/Assests/user.jpg")} />
                   </div>
                   <b className="caret d-none d-lg-block d-xl-block" />
                 </DropdownToggle>
@@ -150,7 +150,7 @@ function Header() {
             onClick={toggleModalSearch}
 
           >
-            <img className="icon-simple-remove" src={require('./../../Assests/remove.svg')} alt="remove" />
+            <img className="icon-simple-remove" src={require('@/Assests/remove.svg')} alt="remove" />
           </button>
         </div>
       </Modal>
