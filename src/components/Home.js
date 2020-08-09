@@ -1,11 +1,12 @@
 import React from 'react'
 import Services from './Services'
 
-import headerImg from './../Assests/header-parallax1.png'
-
+//import headerImg from './../Assests/header-parallax1.png'
+//import headerImg from '@Assets/header-parallax1.png'
+import headerImg from '@/Assests/logo.png'
 function Home() {
     
-
+ 
     return <div className="main-wrap">
         <div >
 
