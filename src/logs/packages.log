@@ -15,3 +15,4 @@ graphql             : installed
 dotenv              : installed
 bootstrap           : installed 
 reactstrap          : installed
+@craco/craco        : installed 
