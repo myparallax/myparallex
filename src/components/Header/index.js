@@ -15,7 +15,7 @@ import {
   Nav,
   Container,
   Modal,
-  ModalHeader, 
+   
   ModalBody
 } from "reactstrap";
 import Auth from "../Auth";
