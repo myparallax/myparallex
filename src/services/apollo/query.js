@@ -10,4 +10,15 @@ export const LOGIN = gql`
 
 ` ;
 
+export const SIGNUP  = gql `
+
+mutation signUp($login:String! , $password:String!){
+  signUp(login:$login , password:$password){
+    token 
+  }
+}
+
+
+`; 
+
 
