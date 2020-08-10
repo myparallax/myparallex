@@ -3,9 +3,9 @@ import React,{useState} from 'react';
 import Login from './Login';
 import SignUp from './SingUp'
 
-export default function DisabledTabs() {
+export default function Auth(props) {
 
-  const [login, setLogin] = useState(true);
+  const [login, setLogin] = useState(props.login);
   
   return (
 
