@@ -14,18 +14,32 @@ import {
   NavLink,
   Nav,
   Container,
-  Modal
+  Modal,
+  ModalHeader, 
+  ModalBody
 } from "reactstrap";
+import Auth from "../Auth";
 
 function Header() {
 
   const [collapseOpen, setCollapseOpen] = useState(false);
   const [modalSearch, setModalSearch] = useState(false);
+  const [loged, ] = useState(false);
+  // when loginOrReagister  is true , go to login page otherwise go to sign up
+  const [loginOrReagister, setloginOrReagister] = useState(true);
+  const [modalIsOpen, setModalIsOpen] = useState(false);
   const [sidebarOpened,] = useState(document.documentElement.className.indexOf("nav-open") !== -1);
-
+  
   const toggleCollapse = () => setCollapseOpen(!collapseOpen);
   const toggleModalSearch = () => setModalSearch(!modalSearch);
+  // const toggleModal = () => setModalIsOpen(!modalIsOpen);
+  const toggleModal = saidLogin => {
+    setModalIsOpen(!modalIsOpen);
+    setloginOrReagister(saidLogin);
+  }
+  
 
+  
   // const toggleSidebar = () => {
   //   document.documentElement.classList.toggle("nav-open");
   //   setsidebarOpened(!sidebarOpened);
@@ -103,33 +117,46 @@ function Header() {
                   alt="badges icon" />
                 <Link className="nav-link" to="#" >درباره ما</Link>
               </li>
+              {/* Check if the user is logged in or not */}
+              {
+                loged 
+                ? <UncontrolledDropdown nav className="home-navbar-profile">
+                    <DropdownToggle
+                      caret
+                      color="default"
+                      data-toggle="dropdown"
+                      nav
+                      onClick={e => e.preventDefault()}
+                    >
+                      <div className="photo">
+                        <img alt="..." src={require("@/Assests/user.jpg")} />
+                      </div>
+                      <b className="caret d-none d-lg-block d-xl-block" />
+                    </DropdownToggle>
+                    <DropdownMenu className="dropdown-navbar" right tag="ul">
+                      <NavLink tag="li">
+                        <DropdownItem className="nav-itempro">پروفایل کاربری</DropdownItem>
+                      </NavLink>
+                      <NavLink tag="li">
+                        <DropdownItem className="nav-itempro">تنظیمات</DropdownItem>
+                      </NavLink>
+                      <DropdownItem divider tag="li" />
+                      <NavLink tag="li">
+                        <DropdownItem className="nav-itempro">خروج از حساب</DropdownItem>
+                      </NavLink>
+                    </DropdownMenu>
+                </UncontrolledDropdown>
 
-              <UncontrolledDropdown nav className="home-navbar-profile">
-                <DropdownToggle
-                  caret
-                  color="default"
-                  data-toggle="dropdown"
-                  nav
-                  onClick={e => e.preventDefault()}
-                >
-                  <div className="photo">
-                    <img alt="..." src={require("@/Assests/user.jpg")} />
+                : <div className="auth-links home-navbar-profile">
+                    <li className="nav-item" >
+                      <button className="nav-link auth-button-appbar" onClick={() => {toggleModal(false)}}>ثبت نام</button>
+                    </li>
+                    <li className="nav-item">
+                      <button className="nav-link auth-button-appbar" onClick={() => {toggleModal(true)}}>ورود</button>
+                    </li>
                   </div>
-                  <b className="caret d-none d-lg-block d-xl-block" />
-                </DropdownToggle>
-                <DropdownMenu className="dropdown-navbar" right tag="ul">
-                  <NavLink tag="li">
-                    <DropdownItem className="nav-itempro">پروفایل کاربری</DropdownItem>
-                  </NavLink>
-                  <NavLink tag="li">
-                    <DropdownItem className="nav-itempro">تنظیمات</DropdownItem>
-                  </NavLink>
-                  <DropdownItem divider tag="li" />
-                  <NavLink tag="li">
-                    <DropdownItem className="nav-itempro">خروج از حساب</DropdownItem>
-                  </NavLink>
-                </DropdownMenu>
-              </UncontrolledDropdown>
+              }
+
               <li className="separator d-lg-none" />
             </Nav>
           </Collapse>
@@ -154,6 +181,13 @@ function Header() {
           </button>
         </div>
       </Modal>
+
+      <Modal isOpen={modalIsOpen} modalClassName="modal-auth" centered>
+        <ModalBody>
+          <Auth login={loginOrReagister} />
+        </ModalBody>
+      </Modal>
+
     </>
 
   );
