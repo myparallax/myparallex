@@ -168,22 +168,6 @@ label {
     text-align: center;
 }
 
-.form-button-sign-up {
-    background: rgb(9, 238, 230) !important;
-    background: linear-gradient(0deg, rgba(9, 238, 230, 1) 0%, rgba(14, 239, 178, 1) 100%) !important;
-    border: none!important;
-    border-radius: 0.75rem !important;
-    font-family: 'iran-sans' !important;
-    padding: 0.7rem 1rem !important;
-    margin-bottom: 1rem !important;
-    &:focus,
-    &:hover {
-        outline: none !important;
-        background-color: unset;
-        @include box-shadow(0px 0px 8px 0px #CCC9CC);
-    }
-}
-
 .form-button-login {
     background: rgb(238, 9, 87);
     background: linear-gradient(4deg, rgba(238, 9, 87, 1) 0%, rgba(255, 83, 83, 1) 83%);
