@@ -1,9 +1,12 @@
 @import './mixins.scss';
 @import './fonts.scss';
-
-.main-wrap {
-    font-family: 'aviny';
-
+.home-container {
+    font-family: 'vazir';
+    position: relative;
+    text-align: start;
+    .home-first {
+        height: calc(100vh - 75px);
+    }
     .header-content {
         width: 50%;
         padding-top: 5rem;
@@ -12,8 +15,9 @@
         direction: rtl;
         height: 80vh;
         h2 {
-            font-size: 2rem;
+            font-size: 1.7rem;
             color: #FB5253;
+            font-family: 'aviny';
         }
         button {
             background: rgba(238, 9, 87, 1);
@@ -29,15 +33,25 @@
             font-size: 1rem;
             font-family: aviny;
             color: white;
-            margin-top: 2rem;
             transition: 0.5s;
         }
         button:hover {
-            // -webkit-box-shadow: 0px 0px 31px 0px rgba(135, 130, 135, 1);
-            // -moz-box-shadow: 0px 0px 31px 0px rgba(135, 130, 135, 1);
-            // box-shadow: 0px 0px 31px 0px rgba(135, 130, 135, 1);
             cursor: pointer;
-            @include box-shadow(0px 0px 31px 0px rgba(135, 130, 135, 1))
+            @include box-shadow(0px 0px 10px 0px rgba(135, 130, 135, 1))
+        }
+        p {
+            margin: 2.5rem 0;
+        }
+    }
+    .first-side-image {
+        position: absolute;
+        top: -43rem;
+        left: -50rem;
+        width: 95%;
+        transition: all 2s;
+        height: auto;
+        &:hover {
+            transform: rotatez(40deg);
         }
     }
 }
