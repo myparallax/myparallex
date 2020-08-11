@@ -2,6 +2,7 @@ import React from "react";
 import Home from './Home';
 import { BrowserRouter  , Route  } from 'react-router-dom'   
 import Header from './Header' ;
+import Dashboard from "./Dashboard";
 
 function MainWrap() {
 
@@ -10,7 +11,8 @@ function MainWrap() {
     <Route ></Route>
 
     <Header/>
-    <Home/>
+    {/* <Home/> */}
+    <Dashboard/>
 
     </BrowserRouter>
    

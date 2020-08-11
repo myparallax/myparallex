@@ -76,7 +76,7 @@ export default function Login() {
             </div>
             <div className="contact-us">
               برای فعال کردن حساب خود یک ایمیل تائید در صندوق ورودی خود با پیوند دریافت خواهید کرد
-               اگر مشکلی دارید<br/>
+               اگر مشکلی دارید
               <Link href="#" variant="body2" style={{fontFamily:'iran-sans' ,fontSize:'10px'}}>
               با ما تماس  
               </Link> بگیرید.
