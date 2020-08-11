@@ -2,8 +2,6 @@
 @import './Home.scss';
 @import './auth.scss';
 @import './mixins.scss';
-@import './small.scss';
-@import './medium.scss';
 // Mixins
 // General Styles
 body {
@@ -17,14 +15,10 @@ body {
     clear: both;
 }
 
+// services styles
 .services {
     text-align: center;
     font-size: 0.6rem;
-    h2 {
-        text-align: center;
-        margin-bottom: 4rem;
-        font-size: 1.5rem;
-    }
 }
 
 $input-btn-focus-box-shadow: none !important;
@@ -34,7 +28,7 @@ $input-btn-focus-box-shadow: none !important;
     grid-template-rows: repeat(2, 180px);
     grid-gap: 15px;
     justify-content: center;
-    margin: 0 4rem;
+    margin: 2rem 4rem;
 }
 
 .services-card {
@@ -48,6 +42,12 @@ $input-btn-focus-box-shadow: none !important;
     &:hover {
         transform: translateY(-5px) scale(1.005) translateZ(0);
         cursor: pointer;
+        text-decoration: none;
+    }
+    h3 {
+        font-size: 14px;
+        color: black;
+        text-decoration: none;
     }
 }
 
@@ -63,6 +63,7 @@ $input-btn-focus-box-shadow: none !important;
     direction: rtl;
     font-family: 'vazir';
     font-size: 13px;
+    z-index: 3;
 }
 
 .nav-link {
