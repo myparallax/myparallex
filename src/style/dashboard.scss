@@ -8,14 +8,19 @@
     border-radius: 15px 0 0 15px;
     z-index: 4;
     padding: 2rem 1rem;
+    width: 85px;
     ul {
         padding-right: 0;
     }
     &:hover .sidebar-item-title {
         display: block;
-        width: 150px;
     }
     max-height:max-content;
+    &:hover {
+        animation-name: sidebar;
+        animation-duration: 1s;
+        width: 230px;
+    }
 }
 
 .sidebar-item {
@@ -29,8 +34,6 @@
     }
     .sidebar-item-title {
         font-family: 'iran-sans';
-        animation-name: sidebar;
-        animation-duration: 1s;
         &:hover {
             text-decoration: none;
         }
@@ -48,9 +51,9 @@
 
 @keyframes sidebar {
     from {
-        width: 100px;
+        width: 185px;
     }
     to {
-        width: 150px;
+        width: 230px;
     }
 }
