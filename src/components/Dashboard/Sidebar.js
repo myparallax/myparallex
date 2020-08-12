@@ -8,35 +8,35 @@ function Sidebar() {
                 <ul>
                     <li className="sidebar-item">
                         <img src={require('@/Assests/sidebar-icons/Members Icon.svg')} alt=" "className="sidebar-item-icon"/>
-                        <Link className="sidebar-item-title">پروفایل کاربری</Link>
+                        <Link className="sidebar-item-title" to="/dashboard/profile">پروفایل کاربری</Link>
                     </li>
                     <li className="sidebar-item">
                         <img src={require('@/Assests/sidebar-icons/Groups Icon.svg')} alt=" "className="sidebar-item-icon"/>
-                        <Link className="sidebar-item-title">گروه ها</Link>
+                        <Link className="sidebar-item-title" to="/dashboard/groups">گروه ها</Link>
                     </li>
                     <li className="sidebar-item">
                         <img src={require('@/Assests/sidebar-icons/Marketplace Icon.svg')} alt=" "className="sidebar-item-icon"/>
-                        <Link className="sidebar-item-title">مارکت شما</Link>
+                        <Link className="sidebar-item-title" to="/dashboard/ownMarket">مارکت شما</Link>
                     </li>
                     <li className="sidebar-item">
                         <img src={require('@/Assests/sidebar-icons/Messages Icon.svg')} alt=" "className="sidebar-item-icon"/>
-                        <Link className="sidebar-item-title">صفحه چت شما</Link>
+                        <Link className="sidebar-item-title" to="/dashboard/chat">صفحه چت شما</Link>
                     </li>
                     <li className="sidebar-item">
                         <img src={require('@/Assests/sidebar-icons/Events Icon.svg')} alt=" "className="sidebar-item-icon"/>
-                        <Link className="sidebar-item-title">رخدادها</Link>
+                        <Link className="sidebar-item-title" to="/dashboard/events">رخدادها</Link>
                     </li>
                     <li className="sidebar-item">
                         <img src={require('@/Assests/sidebar-icons/Forums Icon.svg')} alt=" "className="sidebar-item-icon"/>
-                        <Link className="sidebar-item-title">پیام ها</Link>
+                        <Link className="sidebar-item-title" to="/dashboard/message">پیام ها</Link>
                     </li>
                     <li className="sidebar-item">
                         <img src={require('@/Assests/sidebar-icons/Overview Icon.svg')} alt=" "className="sidebar-item-icon"/>
-                        <Link className="sidebar-item-title">وضعیت</Link>
+                        <Link className="sidebar-item-title" to="/dashboard/situation">وضعیت</Link>
                     </li>
                     <li className="sidebar-item">
                         <img src={require('@/Assests/sidebar-icons/Notifications Icon.svg')} alt=" "className="sidebar-item-icon"/>
-                        <Link className="sidebar-item-title">اعلان ها</Link>
+                        <Link className="sidebar-item-title" to="/dashboard/notification">اعلان ها</Link>
                     </li>
                 </ul>
             </nav>
