@@ -1,28 +1,64 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
-
-// import icons
-
-
-
-
+import {LOGIN} from '@/services/apollo/query' ; 
+import {useMutation , useApolloClient}from '@apollo/react-hooks' ;
+import { useState } from 'react';
 
 export default function Login() {
+
+  const [username , setUsername]= useState("") ; 
+  const [password , setPassword] = useState(""); 
+
+  const client = useApolloClient() ; 
+
+  const [login , {loading , error , data}]  = useMutation(LOGIN , {
+    
+    onCompleted({login}){
+      localStorage.setItem("token" , login ); 
+      client.writeData({data:{isLoggedIn : true }}); 
+
+    }
+  })
+
+  if(loading ) return <h1> Loading </h1>
+  if(error) return <p>an Error occured!</p>
+
+  const submitHandle = e =>{
+    e.preventDefault();
+
+    login({ variables: { login:username , password:password} });
+    
+  } 
+
+  const handlePassword = (e) =>{
+
+    setPassword(e.target.value )
+
+  }
+
+  const handleUsername = (e)=>{
   
+
+    setUsername(e.target.value) 
+  
+  }
+
   return (
 
     <div className="sign-up">
      
-      <Form className="" >
+      <Form className="" onSubmit={submitHandle}>
        
         <FormGroup>
           <div className="inputs-text">
               <img src={require('@/Assests/icons/user.svg')} alt=" "/>
             <Label for="username"></Label>
             <Input
+            
+                onChange = {handleUsername} 
+                value={username}
                 type="text"
-                id="username"
                 placeholder="نام کاربری"
                 name="usernmae"
                 className="input-text"
@@ -33,8 +69,8 @@ export default function Login() {
             <img src={require('@/Assests/icons/password.svg')} alt=" "/>
             <Label for="password"></Label>
             <Input
+                onChange = {handlePassword} 
                 type="password"
-                id="password"
                 placeholder="رمز عبور"
                 name="password"
                 className="input-text"
@@ -43,6 +79,7 @@ export default function Login() {
 
           <div className="btn-container">
             <Button
+            
               type="submit"
               className="form-button-login"
             >
@@ -51,13 +88,13 @@ export default function Login() {
           </div>
          
           <div className="login-links-container">
-            <div class="round">
+            <div className="round">
               <span>{'من را به خاطر بسپار'}</span>
               <input type="checkbox" id="checkbox" />
-              <label for="checkbox"></label>
+              <label htmlFor="checkbox"></label>
             </div>
             <div>
-              <Link href="#" className="forgot-pass">
+              <Link to="" className="forgot-pass">
                 رمز عبور خود را فراموش کرده اید؟
               </Link>
             </div>
