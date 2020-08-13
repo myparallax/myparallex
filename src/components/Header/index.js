@@ -121,7 +121,11 @@ function Header() {
               </li>
               {/* Check if the user is logged in or not */}
               {
+<<<<<<< HEAD
                 data.isLoggedIn 
+=======
+                !loged 
+>>>>>>> c9069e0f2a43d14f2a0f66155bdc76d36fce675e
                 ? <UncontrolledDropdown nav className="home-navbar-profile">
                     <DropdownToggle
                       caret
@@ -137,14 +141,14 @@ function Header() {
                     </DropdownToggle>
                     <DropdownMenu className="dropdown-navbar" right tag="ul">
                       <NavLink tag="li">
-                        <DropdownItem className="nav-itempro">پروفایل کاربری</DropdownItem>
+                        <DropdownItem className="nav-itempro"><Link to="/dashboard/profile">پروفایل کاربری</Link></DropdownItem>
                       </NavLink>
                       <NavLink tag="li">
-                        <DropdownItem className="nav-itempro">تنظیمات</DropdownItem>
+                        <DropdownItem className="nav-itempro"><Link to="/dashboard/situation">تنظیمات</Link></DropdownItem>
                       </NavLink>
                       <DropdownItem divider tag="li" />
                       <NavLink tag="li">
-                        <DropdownItem className="nav-itempro">خروج از حساب</DropdownItem>
+                        <DropdownItem className="nav-itempro"><Link to="/">خروج از حساب</Link></DropdownItem>
                       </NavLink>
                     </DropdownMenu>
                 </UncontrolledDropdown>
