@@ -121,11 +121,7 @@ function Header() {
               </li>
               {/* Check if the user is logged in or not */}
               {
-<<<<<<< HEAD
                 data.isLoggedIn 
-=======
-                !loged 
->>>>>>> c9069e0f2a43d14f2a0f66155bdc76d36fce675e
                 ? <UncontrolledDropdown nav className="home-navbar-profile">
                     <DropdownToggle
                       caret
