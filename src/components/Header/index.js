@@ -15,16 +15,18 @@ import {
   Nav,
   Container,
   Modal,
-   
   ModalBody
 } from "reactstrap";
 import Auth from "../Auth";
+import {IS_LOGGED_IN} from '@/services/apollo/query' ; 
+import {useQuery}from '@apollo/react-hooks' ; 
+
 
 function Header() {
 
   const [collapseOpen, setCollapseOpen] = useState(false);
   const [modalSearch, setModalSearch] = useState(false);
-  const [loged, ] = useState(false);
+  const {data} = useQuery(IS_LOGGED_IN) ;
   // when loginOrReagister  is true , go to login page otherwise go to sign up
   const [loginOrReagister, setloginOrReagister] = useState(true);
   const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -119,7 +121,7 @@ function Header() {
               </li>
               {/* Check if the user is logged in or not */}
               {
-                loged 
+                data.isLoggedIn 
                 ? <UncontrolledDropdown nav className="home-navbar-profile">
                     <DropdownToggle
                       caret
