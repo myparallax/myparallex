@@ -16,3 +16,4 @@ dotenv              : installed
 bootstrap           : installed 
 reactstrap          : installed
 @craco/craco        : installed 
+sweetalert2         : installed 
