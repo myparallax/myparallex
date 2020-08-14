@@ -1,18 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import { ApolloProvider } from '@apollo/react-hooks';
-import client from './services/apollo/client' 
 import * as serviceWorker from './serviceWorker';
-import 'dotenv/config';
 import './style/index.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 ReactDOM.render(
   <React.StrictMode>
-    <ApolloProvider client={client}>
     <App />
-    </ApolloProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
