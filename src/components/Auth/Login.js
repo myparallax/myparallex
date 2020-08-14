@@ -17,7 +17,6 @@ export default function Login() {
     errorPolicy: "all",
   });
 
-  // if (loading) return <h2> Loading </h2>;
 
   const submitHandle = async (e) => {
     e.preventDefault();
@@ -55,7 +54,11 @@ export default function Login() {
         }
       }
     );
+
   };
+
+    if (loading) return <div> <p style={{padding:'50px'}}>Loading...</p> </div>;
+
 
   const handlePassword = (e) => {
     setPassword(e.target.value);
@@ -65,10 +68,10 @@ export default function Login() {
     setUsername(e.target.value);
   };
 
+
   return (
     <>
-    {
-    loading !== null ?  
+    
       <div className="sign-up">
         <Form className="" onSubmit={submitHandle}>
           <FormGroup>
@@ -133,8 +136,9 @@ export default function Login() {
           </FormGroup>
         </Form>
       </div>
-    : <h3>Loading </h3>
-}
+   
+
+
     </>
   );
 }
