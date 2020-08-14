@@ -13,7 +13,7 @@ function TextBox(props) {
   return (
     <>
       <div className="inputs-text" >
-        <img src={iconSrc} alt=" " />
+        <img src={iconSrc} alt="parallex img" />
         <Label htmlFor={type==="text" ? "username" : "password" }></Label>
         <Input
         onChange = {onChange} 
