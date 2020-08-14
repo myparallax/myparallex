@@ -1,17 +1,21 @@
-import React, { useState } from "react";
+import React from "react";
+import MainWrap from "./components/MainWrap";
+import ContextProvider from "@/components/AppContex/ContextProvider";
+import client from "./services/apollo/client";
+import {ApolloProvider} from '@apollo/react-hooks'; 
 
-// import components
-import MainWrap from './components/MainWrap';
 
 function App() {
 
   return (
-    <>
-        <MainWrap />
-      \
-    </>
+
+      <ContextProvider>
+            <ApolloProvider client={client }>
+            <MainWrap />
+            </ApolloProvider>
+      
+      </ContextProvider>
   );
-} 
+}
 
 export default App;
- 
