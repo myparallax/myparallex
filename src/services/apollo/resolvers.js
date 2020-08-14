@@ -1,4 +1,4 @@
-import { gql } from 'apollo-boost';
+import { gql } from '@apollo/react-hooks';
 
 export const typeDefs = gql`
   extend type Query {
