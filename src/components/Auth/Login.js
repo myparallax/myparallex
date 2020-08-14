@@ -8,17 +8,16 @@ import Swal from "sweetalert2";
 import {query } from "@/services/apollo/query";
 
 export default function Login() {
+
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const { state, setState } = useContext(AppContex);
-
   const client = useApolloClient();
-
   const [login, { loading }] = useMutation(LOGIN, {
     errorPolicy: "all",
   });
 
-  if (loading) return <h2> Loading </h2>;
+  // if (loading) return <h2> Loading </h2>;
 
   const submitHandle = async (e) => {
     e.preventDefault();
@@ -32,9 +31,20 @@ export default function Login() {
             title: "" + error,
           });
         } else {
-          Swal.fire({
-            icon: "success",
-            title: "Successfully Signed In !",
+          const Toast = Swal.mixin({
+            toast: true,
+            position: 'center',
+            showConfirmButton: false,
+            timer: 1000,
+            timerProgressBar: true,
+            onOpen: (toast) => {
+              toast.addEventListener('mouseenter', Swal.stopTimer)
+              toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }
+          })
+          Toast.fire({
+            icon: 'success',
+            title: 'Signed in successfully'
           }).then( async () => {
 
                 console.log("data in Swal :  "  ,  ) ;
@@ -57,6 +67,8 @@ export default function Login() {
 
   return (
     <>
+    {
+    loading !== null ?  
       <div className="sign-up">
         <Form className="" onSubmit={submitHandle}>
           <FormGroup>
@@ -121,6 +133,8 @@ export default function Login() {
           </FormGroup>
         </Form>
       </div>
+    : <h3>Loading </h3>
+}
     </>
   );
 }
