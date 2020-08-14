@@ -1,7 +1,7 @@
 import React,{useState} from 'react';
 
 import Login from './Login';
-import SignUp from './SingUp'
+import SignUp from './SignUp/SingUp'
 import ErrorBoundary from '@/components/Error' ; 
 
 export default function Auth(props) {
