@@ -7,6 +7,9 @@ import AppContex from "@/components/AppContex";
 import Swal from "sweetalert2";
 import { query } from "@/services/apollo/query";
 import TextBox from "../TextBox";
+import SocialAccounts from "./SocialAccounts";
+
+
 export default function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -56,8 +59,7 @@ export default function Login() {
   if (loading)
     return (
       <div>
-        {" "}
-        <p style={{ padding: "50px" }}>Loading...</p>{" "}
+        <p style={{ padding: "50px" }}>Loading...</p>
       </div>
     );
 
@@ -113,20 +115,7 @@ export default function Login() {
               </div>
             </div>
 
-            <div className="social-accounts">
-              <div className="base-line"></div>
-              <span className="login-text-social">or login with</span>
-              <div className="social-icons">
-                <button className="icons">
-                  <span>Github</span>
-                  <img src={require("@/Assests/icons/github.svg")} alt=" " />
-                </button>
-                <button className="icons">
-                  <span>Google</span>
-                  <img src={require("@/Assests/icons/google.svg")} alt=" " />
-                </button>
-              </div>
-            </div>
+            <SocialAccounts/>
           </FormGroup>
         </Form>
       </div>
