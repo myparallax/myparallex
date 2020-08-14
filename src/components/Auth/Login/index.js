@@ -1,6 +1,5 @@
 import React, { useState, useContext } from "react";
-import { Link } from "react-router-dom";
-import { Button, Form, FormGroup } from "reactstrap";
+import { Form, FormGroup } from "reactstrap";
 import { LOGIN } from "@/services/apollo/query";
 import { useMutation, useApolloClient } from "@apollo/react-hooks";
 import AppContex from "@/components/AppContex";
@@ -8,6 +7,7 @@ import Swal from "sweetalert2";
 import { query } from "@/services/apollo/query";
 import TextBox from "../TextBox";
 import SocialAccounts from "./SocialAccounts";
+import Submit from './Submit'; 
 
 
 export default function Login() {
@@ -95,26 +95,7 @@ export default function Login() {
               name="password"
               className="input-text"
             />
-
-            <div className="btn-container">
-              <Button type="submit" className="form-button-login">
-                ورود
-              </Button>
-            </div>
-
-            <div className="login-links-container">
-              <div className="round">
-                <span>{"من را به خاطر بسپار"}</span>
-                <input type="checkbox" id="checkbox" />
-                <label htmlFor="checkbox"></label>
-              </div>
-              <div>
-                <Link to="" className="forgot-pass">
-                  رمز عبور خود را فراموش کرده اید؟
-                </Link>
-              </div>
-            </div>
-
+            <Submit/>
             <SocialAccounts/>
           </FormGroup>
         </Form>
