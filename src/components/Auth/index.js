@@ -2,6 +2,7 @@ import React,{useState} from 'react';
 
 import Login from './Login';
 import SignUp from './SingUp'
+import ErrorBoundary from '@/components/Error' ; 
 
 export default function Auth(props) {
 
@@ -18,8 +19,8 @@ export default function Auth(props) {
        
         {
             login 
-            ? <Login />
-            : <SignUp />
+            ? <ErrorBoundary><Login/></ErrorBoundary>
+            : <ErrorBoundary><SignUp /></ErrorBoundary>
         }
 
     </div>
