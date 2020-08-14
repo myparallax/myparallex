@@ -69,15 +69,15 @@ export default function Login() {
           </div>
          
           <div className="container login-links-container">
-            <div class="round">
+            <div className="round">
               <span>{'به روزرسانی ها را برای من ارسال کنید'}</span>
               <input type="checkbox" id="checkbox" />
-              <label for="checkbox"></label>
+              <label htmlFor="checkbox"></label>
             </div>
             <div className="contact-us">
               برای فعال کردن حساب خود یک ایمیل تائید در صندوق ورودی خود با پیوند دریافت خواهید کرد
                اگر مشکلی دارید
-              <Link href="#" variant="body2" style={{fontFamily:'iran-sans' ,fontSize:'10px'}}>
+              <Link to="#" variant="body2" style={{fontFamily:'iran-sans' ,fontSize:'10px'}}>
               با ما تماس  
               </Link> بگیرید.
             </div>
