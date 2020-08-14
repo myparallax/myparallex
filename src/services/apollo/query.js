@@ -1,4 +1,4 @@
-import { gql } from 'apollo-boost';
+import { gql } from '@apollo/react-hooks'; 
 
 export const LOGIN = gql`
 
@@ -11,16 +11,14 @@ export const LOGIN = gql`
 
 ` ;
 
-export const SIGNUP  = gql `
+// export const SIGNUP  = gql `
 
-mutation signUp($login:String! , $password:String!){
-  signUp(login:$login , password:$password){
-    token 
-  }
-}
-
-
-`;
+// mutation signUp($login:String! , $password:String!){
+//   signUp(login:$login , password:$password){
+//     token 
+//   }
+// }
+// `;
 
 export const IS_LOGGED_IN = gql`
   query IsUserLoggedIn {
@@ -28,4 +26,9 @@ export const IS_LOGGED_IN = gql`
   }
 `;
 
+export const query = gql`
+  query setlogin {
+      isLoggedIn
+  }
+`;
 
