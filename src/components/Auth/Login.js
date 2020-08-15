@@ -1,14 +1,19 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import { Button, Form, FormGroup, Label, Input , FormText} from 'reactstrap';
 import {LOGIN} from '@/services/apollo/query' ; 
 import {useMutation , useApolloClient}from '@apollo/react-hooks' ;
 import { useState } from 'react';
+import { empty } from 'apollo-boost';
 
 export default function Login() {
+  
 
-  const [username , setUsername]= useState("") ; 
+  const [email , setEmail]= useState("") ; 
   const [password , setPassword] = useState(""); 
+  const [emailValidate , setEmailValidate] = useState(""); 
+  const [passwordValidate , setPasswordValidate] = useState("");
+  const [buttonDisabled , setButtonDisabled]= useState(false) ; 
 
   const client = useApolloClient() ; 
 
@@ -26,23 +31,36 @@ export default function Login() {
 
   const submitHandle = e =>{
     e.preventDefault();
-
-    login({ variables: { login:username , password:password} });
+    
+    login({ variables: { login:email , password:password} });
     
   } 
 
-  const handlePassword = (e) =>{
+  const handlePassword = e => {
+    const passwordRex =/^(?=.*[a-z])(?=.*[A-Z]).{8,32}$/;
+    if (passwordRex.test(e.target.value)) {
+      setPasswordValidate("valid")
+      setPassword(e.target.value);
+    }  
+    else if(!passwordRex.test(e.target.value)) setPasswordValidate("invalid");
+   
+  }
+ 
+  const handleEmail = e =>{ 
 
-    setPassword(e.target.value )
-
+    const emailRex =  /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    if (emailRex.test(e.target.value)) {
+      setEmailValidate("valid")
+      setEmail(e.target.value)
+    }  
+    else if(!emailRex.test(e.target.value)) setEmailValidate("invalid");   
+  
   }
 
-  const handleUsername = (e)=>{
-  
-
-    setUsername(e.target.value) 
-  
-  }
+const focusChecked = e => {
+  console.log("in focus")
+  setEmailValidate("")  
+};
 
   return (
 
@@ -51,21 +69,24 @@ export default function Login() {
       <Form className="" onSubmit={submitHandle}>
        
         <FormGroup>
-          <div className="inputs-text">
-              <img src={require('@/Assests/icons/user.svg')} alt=" "/>
+          
+          <div className={`inputs-text ${emailValidate === "invalid" ? "invalid" : ""} ${emailValidate === "valid" ? "valid" : ""}`}>
+              <img src={require('@/Assests/icons/email.svg')} alt=" "/>
             <Label for="username"></Label>
             <Input
-            
-                onChange = {handleUsername} 
-                value={username}
-                type="text"
-                placeholder="نام کاربری"
-                name="usernmae"
+                onChange = {handleEmail} 
+                type="email"
+                id="email"
+                placeholder="پست الکترونیک"
+                name="email"
+                onfocus="this.value = this.value;" 
                 className="input-text"
+                onfocus = {focusChecked}
+                trigger="focus"
             />
           </div>
-
-          <div className="inputs-text">
+          
+          <div className={`inputs-text ${passwordValidate === "invalid" ? "invalid" : ""} ${passwordValidate === "valid" ? "valid" : ""}`}>
             <img src={require('@/Assests/icons/password.svg')} alt=" "/>
             <Label for="password"></Label>
             <Input
@@ -74,14 +95,20 @@ export default function Login() {
                 placeholder="رمز عبور"
                 name="password"
                 className="input-text"
-            />
+                
+            />   
           </div>
+          <FormText className="formText ">
+              رمز شما باید دارای حداقل هشت کاراکتر و یک حرف بزرگ باشد
+          </FormText>
+         
 
           <div className="btn-container">
             <Button
             
               type="submit"
-              className="form-button-login"
+              className="form-button-login" 
+              // disabled = {if(emailValidate === "valid" && passwordValidate === "valid"){true}}
             >
               ورود
             </Button>

@@ -63,6 +63,14 @@ $color-dark: rgba(109, 108, 108, 0.68);
     color: #707172;
 }
 
+.valid {
+    border: 1px solid green !important;
+}
+
+.invalid {
+    border: 1px solid red !important;
+}
+
 .inputs-text {
     display: flex;
     background-color: #f9f9f9;
@@ -269,4 +277,29 @@ label {
     &:hover {
         outline: none !important;
     }
+}
+
+input:required {
+    box-shadow: none;
+}
+
+input:invalid {
+    box-shadow: none !important;
+}
+
+.formText {
+    direction: rtl;
+    text-align: start;
+    font-size: 10px;
+    opacity: 70%;
+    margin: 0 15px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-top: -15px !important;
+    margin-bottom: 15px;
+}
+
+.btn.disabled,
+.btn:disabled {
+    opacity: 1 !important;
 }
