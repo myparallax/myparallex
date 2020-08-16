@@ -46,7 +46,6 @@ export default function Login() {
             icon: "success",
             title: "Signed in successfully",
           }).then(async () => {
-            console.log("data in Swal :  ");
             localStorage.setItem("token", await result.data.signIn.token);
             client.writeQuery({ query, data: { isLoggedIn: true } });
             setState({ modalIsOpen: !state.modalIsOpen });
@@ -68,7 +67,6 @@ export default function Login() {
   };
 
   const handleUsername = (e) => {
-    console.log("e.target.value : ", e.target.value);
     setUsername(e.target.value);
   };
 
