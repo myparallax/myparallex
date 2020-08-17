@@ -11,7 +11,7 @@ import Submit from './Submit';
 
 
 export default function Login() {
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { state, setState } = useContext(AppContex);
   const client = useApolloClient();
@@ -22,7 +22,7 @@ export default function Login() {
   const submitHandle = async (e) => {
     e.preventDefault();
 
-    login({ variables: { login: username, password: password } }).then(
+    login({ variables: { login: email, password: password } }).then(
       (result) => {
         if (result.data.signIn == null) {
           const error = result.errors[0].message;
@@ -66,8 +66,8 @@ export default function Login() {
     setPassword(e.target.value);
   };
 
-  const handleUsername = (e) => {
-    setUsername(e.target.value);
+  const handleEmail = (e) => {
+    setEmail(e.target.value);
   };
 
   return (
@@ -77,9 +77,9 @@ export default function Login() {
           <FormGroup>
             <TextBox
               iconSrc={require("@/Assests/icons/user.svg")}
-              onChange={handleUsername}
-              value={username}
-              type="text"
+              onChange={handleEmail}
+              value={email}
+              type="email"
               placeholder="نام کاربری"
               name="usernmae"
               className="input-text"
