@@ -11,6 +11,7 @@ export default function Login() {
       <Form className="" >
        
         <FormGroup>
+          
           <div className="inputs-text">
               <img src={require('@/Assests/icons/email.svg')} alt=" "/>
             <Label for="username"></Label>
@@ -23,17 +24,6 @@ export default function Login() {
             />
           </div>
         
-          <div className="inputs-text">
-              <img src={require('@/Assests/icons/user.svg')} alt=" "/>
-            <Label for="username"></Label>
-            <Input
-                type="text"
-                id="username"
-                placeholder="نام کاربری"
-                name="usernmae"
-                className="input-text"
-            />
-          </div>
 
           <div className="inputs-text">
             <img src={require('@/Assests/icons/password.svg')} alt=" "/>
@@ -42,18 +32,6 @@ export default function Login() {
                 type="password"
                 id="password"
                 placeholder="رمز عبور"
-                name="password"
-                className="input-text"
-            />
-          </div>
-
-          <div className="inputs-text">
-            <img src={require('@/Assests/icons/password.svg')} alt=" "/>
-            <Label for="password"></Label>
-            <Input
-                type="password"
-                id="password"
-                placeholder="تکرار رمز عبور"
                 name="password"
                 className="input-text"
             />
