@@ -1,6 +1,6 @@
 import React from "react";
-import { Button  } from "reactstrap";
-import {Link} from 'react-router-dom' ; 
+import { Button } from "reactstrap";
+import { Link } from "react-router-dom";
 
 function Submit() {
   return (
@@ -27,4 +27,4 @@ function Submit() {
   );
 }
 
-export default Submit ; 
+export default Submit;
