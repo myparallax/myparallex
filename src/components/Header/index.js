@@ -18,20 +18,12 @@ import {
   ModalBody,
 } from "reactstrap";
 import Auth from "../Auth";
-import { IS_LOGGED_IN , query } from "@/services/apollo/query";
+import { IS_LOGGED_IN, query } from "@/services/apollo/query";
 import { useQuery } from "@apollo/react-hooks";
 import AppContext from "@/components/AppContex";
-import { useApolloClient } from '@apollo/client';
-// import {gql } from '@apollo/react-hooks' ; 
-
-// const query = gql`
-//   query MyTodoAppQuery {
-//       isLoggedIn
-//   }
-// `;
+import { useApolloClient } from "@apollo/client";
 
 function Header() {
-  
   const [collapseOpen, setCollapseOpen] = useState(false);
   const [modalSearch, setModalSearch] = useState(false);
   const { data } = useQuery(IS_LOGGED_IN);
@@ -44,22 +36,19 @@ function Header() {
   const toggleCollapse = () => setCollapseOpen(!collapseOpen);
   const toggleModalSearch = () => setModalSearch(!modalSearch);
 
-  const  { state, setState } = useContext(AppContext);
-  const cache  = useApolloClient();
-
+  const { state, setState } = useContext(AppContext);
+  const cache = useApolloClient();
 
   const toggleModal = (saidLogin) => {
     setState({ modalIsOpen: !state.modalIsOpen });
     setloginOrReagister(saidLogin);
   };
 
-  const handleLogout = () =>{
+  const handleLogout = () => {
+    cache.writeQuery({ query, data: { isLoggedIn: false } });
 
-    cache.writeQuery({ query,  data: { isLoggedIn: false } });
-
-        localStorage.clear();
-
-  }
+    localStorage.clear();
+  };
   return (
     <>
       <Navbar expand="lg" className="home-navbar">
@@ -69,17 +58,7 @@ function Header() {
               className={`navbar-toggle d-inline ${
                 sidebarOpened ? "toggled" : ""
               }`}
-            >
-              {/* <button
-              className="navbar-toggler"
-              type="button"
-              onClick={toggleSidebar}
-            >
-              <span className="navbar-toggler-bar bar1" />
-              <span className="navbar-toggler-bar bar2" />
-              <span className="navbar-toggler-bar bar3" />
-            </button> */}
-            </div>
+            ></div>
             <NavbarBrand href="/" onClick={(e) => e.preventDefault()}>
               <img src={require("@/Assests/logo.svg")} alt="logo" />
             </NavbarBrand>
@@ -185,7 +164,9 @@ function Header() {
                     <DropdownItem divider tag="li" />
                     <NavLink tag="li">
                       <DropdownItem className="nav-itempro">
-                        <Link onClick={handleLogout} to="">خروج از حساب</Link>
+                        <Link onClick={handleLogout} to="">
+                          خروج از حساب
+                        </Link>
                       </DropdownItem>
                     </NavLink>
                   </DropdownMenu>
