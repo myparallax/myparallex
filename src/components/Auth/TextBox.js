@@ -1,31 +1,33 @@
-import React  from "react";
+import React from "react";
 import { Label, Input } from "reactstrap";
 
 function TextBox(props) {
-
-    const {iconSrc , onChange ,
-    value , 
-    type , 
-    placeholder , 
-    name , 
-    className} = props ; 
+  const {
+    iconSrc,
+    onChange,
+    value,
+    type,
+    placeholder,
+    name,
+    className,
+  } = props;
 
   return (
     <>
-      <div className="inputs-text" >
+      <div className="inputs-text">
         <img src={iconSrc} alt="parallex img" />
-        <Label htmlFor={type==="email" ? "email" : "password" }></Label>
+        <Label htmlFor={type === "email" ? "email" : "password"}></Label>
         <Input
-        onChange = {onChange} 
-        valu={value}
-        type={type}
-        placeholder={placeholder}
-        nam={name}
-        className={className}
+          onChange={onChange}
+          valu={value}
+          type={type}
+          placeholder={placeholder}
+          nam={name}
+          className={className}
         />
       </div>
     </>
   );
 }
 
-export default TextBox ; 
+export default TextBox;
