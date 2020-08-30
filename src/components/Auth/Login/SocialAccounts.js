@@ -9,11 +9,17 @@ function SocialAccounts() {
         <div className="social-icons">
           <button className="icons">
             <span>Github</span>
-            <img src={require("@/Assests/icons/github.svg")} alt="parallex icon" />
+            <img
+              src={require("@/Assests/icons/github.svg")}
+              alt="parallex icon"
+            />
           </button>
           <button className="icons">
             <span>Google</span>
-            <img src={require("@/Assests/icons/google.svg")} alt="parallex icon" />
+            <img
+              src={require("@/Assests/icons/google.svg")}
+              alt="parallex icon"
+            />
           </button>
         </div>
       </div>
