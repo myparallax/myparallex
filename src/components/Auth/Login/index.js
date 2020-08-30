@@ -7,8 +7,7 @@ import Swal from "sweetalert2";
 import { query } from "@/services/apollo/query";
 import TextBox from "../TextBox";
 import SocialAccounts from "./SocialAccounts";
-import Submit from './Submit'; 
-
+import Submit from "./Submit";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -93,8 +92,8 @@ export default function Login() {
               name="password"
               className="input-text"
             />
-            <Submit/>
-            <SocialAccounts/>
+            <Submit />
+            <SocialAccounts />
           </FormGroup>
         </Form>
       </div>
