@@ -73,7 +73,6 @@ function Header() {
           </button>
         </div>
       </Modal>
-      {console.log("in return func : ", state.modalIsOpen)}
       <Modal
         isOpen={state.modalIsOpen}
         modalClassName="modal-auth"
