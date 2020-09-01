@@ -1,9 +1,5 @@
 import React, { useState, useContext } from "react";
-import {
-  Modal,
-  ModalBody,
-  Input
-} from "reactstrap";
+import { Modal, ModalBody, Input } from "reactstrap";
 import Auth from "../Auth";
 import { IS_LOGGED_IN, query } from "@/services/apollo/query";
 import { useQuery } from "@apollo/react-hooks";
@@ -28,6 +24,8 @@ function Header() {
   const cache = useApolloClient();
 
   const toggleModal = (saidLogin) => {
+    
+    
     setState({ modalIsOpen: !state.modalIsOpen });
     setloginOrReagister(saidLogin);
   };
