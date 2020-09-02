@@ -1,8 +1,8 @@
 import { resolvers, typeDefs } from "./resolvers";
 import { onError } from "apollo-link-error" ;
-import {  ApolloClient , from  } from '@apollo/client';
-import {HttpLink } from 'apollo-link-http'  ; 
- import {InMemoryCache} from 'apollo-cache-inmemory' ; 
+import {  ApolloClient , from  , HttpLink   } from '@apollo/client';
+// import {HttpLink } from 'apollo-link-http'  ; 
+  import {InMemoryCache} from 'apollo-cache-inmemory' ; 
 
 const uri = "http://localhost:4000"; 
  
