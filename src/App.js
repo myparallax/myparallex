@@ -2,7 +2,7 @@ import React from "react";
 import MainWrap from "./components/MainWrap";
 import ContextProvider from "@/components/AppContex/ContextProvider";
 import client from "./services/apollo/client";
-import {ApolloProvider} from '@apollo/react-hooks'; 
+import {ApolloProvider} from '@apollo/client'; 
 
 
 function App() {
