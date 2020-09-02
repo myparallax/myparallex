@@ -1,13 +1,13 @@
 import React, { useState, useContext } from "react";
 import { Form, FormGroup } from "reactstrap";
-import { LOGIN } from "@/services/apollo/query";
-import { useMutation, useApolloClient } from "@apollo/react-hooks";
-import AppContex from "@/components/AppContex";
 import Swal from "sweetalert2";
-import { query } from "@/services/apollo/query";
 import TextBox from "../TextBox";
 import SocialAccounts from "./SocialAccounts";
 import Submit from "./Submit";
+
+import AppContex from "@/components/AppContex";
+import { LOGIN  , query} from "@/services/apollo/query";
+import { useMutation, useApolloClient } from "@apollo/client";
 
 export default function Login() {
   const [email, setEmail] = useState("");
