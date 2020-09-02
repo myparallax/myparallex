@@ -1,7 +1,9 @@
 import { resolvers, typeDefs } from "./resolvers";
 import { onError } from "apollo-link-error" ;
-import {  ApolloClient , from  , HttpLink   } from '@apollo/client';
-import {InMemoryCache} from 'apollo-cache-inmemory' ; 
+import {  ApolloClient , from  , HttpLink , InMemoryCache  } from '@apollo/client';
+// import {InMemoryCache} from 'apollo-cache-inmemory' ; 
+// import {InMemoryCache} from '@apollo/client/cache' ;
+
 
 const uri = "http://localhost:4000"; 
  
@@ -40,12 +42,21 @@ const client = new ApolloClient({
   });
 
   
-  cache.writeData({
-    data: {
-      isLoggedIn: !!localStorage.getItem('token'),
+  // cache.writeData({
+  //   data: {
+  //     isLoggedIn: !!localStorage.getItem('token'),
       
-    },
-  });
+  //   },
+  // });
+  // cache.write({
+  //   data: {
+  //     isLoggedIn: !!localStorage.getItem('token'),
+      
+  //   },
+  // });
+cache.writeQuery({query:{}, data:{isLoggedIn:!!localStorage.getItem("token")}}); 
+
+
 
 export default client 
 
