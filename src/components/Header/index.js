@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import { Modal, ModalBody, Input } from "reactstrap";
 import Auth from "../Auth";
 import { IS_LOGGED_IN, query } from "@/services/apollo/query";
-import { useQuery } from "@apollo/react-hooks";
+import { useQuery } from "@apollo/client";
 import AppContext from "@/components/AppContex";
 import { useApolloClient } from "@apollo/client";
 import NavbarHeader from './NavbarHeader'; 
