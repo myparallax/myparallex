@@ -1,4 +1,5 @@
-import { gql } from '@apollo/react-hooks'; 
+// import { gql } from '@apollo/react-hooks'; 
+import {gql }from '@apollo/client'; 
 
 export const LOGIN = gql`
 
