@@ -1,8 +1,9 @@
 import { resolvers, typeDefs } from "./resolvers";
-import { onError } from "apollo-link-error" ;
-import {  ApolloClient , from  , HttpLink , InMemoryCache  } from '@apollo/client';
-// import {InMemoryCache} from 'apollo-cache-inmemory' ; 
+// import { onError } from "apollo-link-error" ;
+import {  ApolloClient , from  , HttpLink   } from '@apollo/client';
+import {InMemoryCache} from 'apollo-cache-inmemory' ; 
 // import {InMemoryCache} from '@apollo/client/cache' ;
+import { onError } from "@apollo/client/link/error";
 
 
 const uri = "http://localhost:4000"; 
@@ -10,8 +11,12 @@ const uri = "http://localhost:4000";
 
 const cache = new InMemoryCache() ; 
 
-const errorLink = onError(({ graphQLErrors, networkError , operation, forward }) => {
+const errorLink = onError(({operation , response , graphQLErrors, networkError  }) => {
    
+  console.log("operationd that errored : " , operation.operationName) ; 
+
+  console.log("response from server : " , response ); 
+
   if (graphQLErrors)
 
     graphQLErrors.map(({ message, locations, path }) =>
@@ -42,19 +47,19 @@ const client = new ApolloClient({
   });
 
   
-  // cache.writeData({
+  cache.writeData({
+    data: {
+      isLoggedIn: !!localStorage.getItem('token'),
+      
+    },
+  });
+  // cache.write({ 
   //   data: {
   //     isLoggedIn: !!localStorage.getItem('token'),
       
   //   },
   // });
-  // cache.write({
-  //   data: {
-  //     isLoggedIn: !!localStorage.getItem('token'),
-      
-  //   },
-  // });
-cache.writeQuery({query:{}, data:{isLoggedIn:!!localStorage.getItem("token")}}); 
+// cache.wri teQuery({query:{}, data:{isLoggedIn:!!localStorage.getItem("token")}}); 
 
 
 
