@@ -5,12 +5,16 @@ import { IS_LOGGED_IN, query } from "@/services/apollo/query";
 import { useQuery } from "@apollo/client";
 import AppContext from "@/components/AppContex";
 import { useApolloClient } from "@apollo/client";
-import NavbarHeader from './NavbarHeader'; 
+import NavbarHeader from './NavbarHeader/NavbarHeader'; 
 
 function Header() {
+
   const [collapseOpen, setCollapseOpen] = useState(false);
+
   const [modalSearch, setModalSearch] = useState(false);
+
   const { data } = useQuery(IS_LOGGED_IN);
+
   const [loginOrReagister, setloginOrReagister] = useState(true);
 
   const [sidebarOpened] = useState(
@@ -18,33 +22,29 @@ function Header() {
   );
 
   const toggleCollapse = () => setCollapseOpen(!collapseOpen);
+
   const toggleModalSearch = () => setModalSearch(!modalSearch);
 
   const { state, setState } = useContext(AppContext);
+
   const cache = useApolloClient();
 
   const toggleModal = (saidLogin) => {
-    
-    
     setState({ modalIsOpen: !state.modalIsOpen });
     setloginOrReagister(saidLogin);
   };
 
   const handleLogout = () => {
     cache.writeQuery({ query, data: { isLoggedIn: false } });
-
     localStorage.clear();
   };
+  const NavbarHeaderProps = {data , toggleCollapse , sidebarOpened , toggleModal , handleLogout , toggleModalSearch , collapseOpen}
 
-  const NavbarHeaderProps = {
-    data , toggleCollapse , sidebarOpened , toggleModal , handleLogout
-
-  }
   return (
     <>
     
       <NavbarHeader {...NavbarHeaderProps}/>
-      
+
       <Modal
         modalClassName="modal-search"
         isOpen={modalSearch}
@@ -71,6 +71,7 @@ function Header() {
           </button>
         </div>
       </Modal>
+     
       <Modal
         isOpen={state.modalIsOpen}
         modalClassName="modal-auth"
@@ -81,6 +82,7 @@ function Header() {
           <Auth login={loginOrReagister} />
         </ModalBody>
       </Modal>
+   
     </>
   );
 }
