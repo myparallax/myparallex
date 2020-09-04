@@ -14,15 +14,15 @@ export default function Login() {
   const [password, setPassword] = useState("");
   const { state, setState } = useContext(AppContex);
   const client = useApolloClient();
-  const [login, { loading }] = useMutation(LOGIN, {
+  const [login, { loading , error}] = useMutation(LOGIN, {
     errorPolicy: "all",
   });
 
   const submitHandle = async (e) => {
     e.preventDefault();
 
-    login({ variables: { login: email, password: password } }).then(
-      (result) => {
+    login({ variables: { login: email, password: password } })
+    .then((result) => {
         if (result.data.signIn == null) {
           const error = result.errors[0].message;
           Swal.fire({
@@ -51,7 +51,9 @@ export default function Login() {
           });
         }
       }
-    );
+    ).catch(error=>{
+      console.log("Internet is disconnected ! "); 
+    });
   };
 
   if (loading)
@@ -60,7 +62,9 @@ export default function Login() {
         <p style={{ padding: "50px" }}>Loading...</p>
       </div>
     );
-
+  if(error){
+    return <div> Error...{JSON.stringify(error)} </div>
+  }
   const handlePassword = (e) => {
     setPassword(e.target.value);
   };
