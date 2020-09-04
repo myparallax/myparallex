@@ -1,10 +1,12 @@
 import React from 'react' ; 
 
-function CheckInternet({children}){
+function CheckInternet(props){
 
     return <>
     
-    {navigator.onLine  ? {children} : <div>اینترنت قطع شده است.</div>}
+    {navigator.onLine  ? <>{props.children} </>: <div>اینترنت قطع شده است</div>}
     
     </>
 }
+
+export default CheckInternet ; 
