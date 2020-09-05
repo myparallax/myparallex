@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import { Form, FormGroup } from "reactstrap";
 import Swal from "sweetalert2";
 import TextBox from "../TextBox";
-import SocialAccounts from "./SocialAccounts";
+import SocialAccounts from "../SocialAccounts";
 import Submit from "./Submit";
 
 import AppContex from "@/components/AppContex";
@@ -83,8 +83,8 @@ export default function Login() {
               onChange={handleEmail}
               value={email}
               type="email"
-              placeholder="نام کاربری"
-              name="usernmae"
+              placeholder="ایمیل"
+              name="email"
               className="input-text"
             />
 
