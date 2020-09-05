@@ -1,78 +1,66 @@
-import React from "react";
-import { Button, Form, FormGroup, Label, Input } from "reactstrap";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Form, FormGroup } from "reactstrap";
+import TextBox from "../TextBox";
+import Submit from "../Submit";
+import SocialAccounts from "../SocialAccounts";
+import iconSrc from "@/Assests/icons/email.svg";
+import passIconSrc from "@/Assests/icons/password.svg";
 
-export default function Login() {
+ function SignUp() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleEmail = () => {
+
+  };
+  const handlePassword = () => {
+    
+  };
+
+  const textBoxProps = (which) => {
+    
+    if (which === "email")
+      return {
+        iconSrc,
+        onchange: handleEmail,
+        value: email,
+        type: "email",
+        placeholder: "ایمیل",
+        name: "email",
+        className: "input-text",
+      } 
+      return {
+        iconSrc: passIconSrc,
+        onChange: handlePassword,
+        type: "password",
+        placeholder: "رمز عبور",
+        name: "password",
+        className: "input-text",
+      }
+
+  };
+
   return (
-    <div className="sign-up">
-      <Form className="">
+     
+      <Form className="sign-up">
+
         <FormGroup>
-          <div className="inputs-text">
-            <img src={require("@/Assests/icons/email.svg")} alt=" " />
-            <Label for="username"></Label>
-            <Input
-              type="email"
-              id="email"
-              placeholder="پست الکترونیک"
-              name="email"
-              className="input-text"
-            />
-          </div>
 
-          <div className="inputs-text">
-            <img src={require("@/Assests/icons/password.svg")} alt=" " />
-            <Label for="password"></Label>
-            <Input
-              type="password"
-              id="password"
-              placeholder="رمز عبور"
-              name="password"
-              className="input-text"
-            />
-          </div>
+          <TextBox {...textBoxProps("email")} />
 
-          <div className="btn-container">
-            <Button type="submit" className="form-button-login">
-              ثبت نام
-            </Button>
-          </div>
+          <TextBox {...textBoxProps("password")} />
 
-          <div className="container login-links-container">
-            <div className="round">
-              <span>{"به روزرسانی ها را برای من ارسال کنید"}</span>
-              <input type="checkbox" id="checkbox" />
-              <label htmlFor="checkbox"></label>
-            </div>
-            <div className="contact-us">
-              برای فعال کردن حساب خود یک ایمیل تائید در صندوق ورودی خود با پیوند
-              دریافت خواهید کرد اگر مشکلی دارید
-              <Link
-                to="#"
-                variant="body2"
-                style={{ fontFamily: "iran-sans", fontSize: "10px" }}
-              >
-                با ما تماس
-              </Link>{" "}
-              بگیرید.
-            </div>
-          </div>
+          <Submit children="ثبت نام" />
 
-          <div className="social-accounts">
-            <div className="base-line"></div>
-            <span className="login-text-social">or sign up with</span>
-            <div className="social-icons">
-              <button className="icons">
-                <span>Github</span>
-                <img src={require("@/Assests/icons/github.svg")} alt=" " />
-              </button>
-              <button className="icons">
-                <span>Google</span>
-                <img src={require("@/Assests/icons/google.svg")} alt=" " />
-              </button>
-            </div>
-          </div>
+          <SocialAccounts />
+
         </FormGroup>
       </Form>
-    </div>
+  
   );
+
+
+
 }
+
+export default SignUp ; 
