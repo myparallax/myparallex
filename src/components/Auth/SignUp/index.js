@@ -7,14 +7,14 @@ import iconSrc from "@/Assests/icons/email.svg";
 import passIconSrc from "@/Assests/icons/password.svg";
 
  function SignUp() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, ] = useState("");
+  // const [password, setPassword] = useState("");
 
   const handleEmail = () => {
 
   };
   const handlePassword = () => {
-    
+
   };
 
   const textBoxProps = (which) => {
