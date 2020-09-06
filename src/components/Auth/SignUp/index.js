@@ -1,37 +1,33 @@
-import React, { useState } from "react";
+import React from "react";
 import { Form, FormGroup } from "reactstrap";
 import TextBox from "../TextBox";
 import Submit from "../Submit";
 import SocialAccounts from "../SocialAccounts";
 import iconSrc from "@/Assests/icons/email.svg";
 import passIconSrc from "@/Assests/icons/password.svg";
+import { useForm } from "react-hook-form";
 
  function SignUp() {
-  const [email, ] = useState("");
-  // const [password, setPassword] = useState("");
 
-  const handleEmail = () => {
+  const { register, handleSubmit } = useForm();
 
-  };
-  const handlePassword = () => {
+  const onSubmit = data => console.log("data : " , data );
 
-  };
 
   const textBoxProps = (which) => {
     
     if (which === "email")
       return {
+        innerRef:register({required:1}) , 
         iconSrc,
-        onchange: handleEmail,
-        value: email,
         type: "email",
         placeholder: "ایمیل",
         name: "email",
         className: "input-text",
       } 
       return {
+        innerRef : register({required:true}), 
         iconSrc: passIconSrc,
-        onChange: handlePassword,
         type: "password",
         placeholder: "رمز عبور",
         name: "password",
@@ -42,7 +38,7 @@ import passIconSrc from "@/Assests/icons/password.svg";
 
   return (
      
-      <Form className="sign-up">
+      <Form className="sign-up" onSubmit={handleSubmit(onSubmit)}>
 
         <FormGroup>
 
