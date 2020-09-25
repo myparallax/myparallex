@@ -1,5 +1,5 @@
 import React from "react";
-import { Form, FormGroup } from "reactstrap";
+import { Form  } from "reactstrap";
 import TextBox from "../TextBox";
 import Submit from "../Submit";
 import SocialAccounts from "../SocialAccounts";
@@ -39,9 +39,7 @@ import { useForm } from "react-hook-form";
   return (
      
       <Form className="sign-up" onSubmit={handleSubmit(onSubmit)}>
-
-        <FormGroup>
-
+        
           <TextBox {...textBoxProps("email")} />
 
           <TextBox {...textBoxProps("password")} />
@@ -49,8 +47,7 @@ import { useForm } from "react-hook-form";
           <Submit children="ثبت نام" />
 
           <SocialAccounts />
-
-        </FormGroup>
+      
       </Form>
   
   );
