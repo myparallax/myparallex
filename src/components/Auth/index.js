@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Login from "./Login";
 import SignUp from "./SignUp";
 import ErrorBoundary from "@/components/Error";
-import CheckInternet from '@/components/Network/CheckInternet';
+import CheckInternet from "@/components/Network/CheckInternet";
 import AuthHeader from "./AuthHeader/AuthHeader";
 
 export default function Auth(props) {
@@ -10,7 +10,6 @@ export default function Auth(props) {
 
   return (
     <div className="auth-container">
-
       <CheckInternet>
         <AuthHeader login={login} setLogin={setLogin} />
         {login ? (
@@ -18,10 +17,10 @@ export default function Auth(props) {
             <Login />
           </ErrorBoundary>
         ) : (
-            <ErrorBoundary>
-              <SignUp />
-            </ErrorBoundary>
-          )}
+          <ErrorBoundary>
+            <SignUp />
+          </ErrorBoundary>
+        )}
       </CheckInternet>
     </div>
   );
